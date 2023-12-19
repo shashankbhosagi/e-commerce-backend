@@ -41,4 +41,4 @@ Now that you have the project and its dependencies installed, you can run it wit
 npm start
 ```
 
-##Note : You will need the .env file to run this project. Which will be present in root directory of the project folder.
+## Note : You will need the .env file to run this project. Which will be present in root directory of the project folder.
