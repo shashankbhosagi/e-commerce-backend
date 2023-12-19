@@ -1,3 +1,7 @@
+const User = require("../models/User");
+const Catalog = require("../models/Catalog");
+const Order = require("../models/Order");
+
 const listOfSellers = async (req, res) => {
   try {
     const sellers = await User.find({ userType: "seller" });
