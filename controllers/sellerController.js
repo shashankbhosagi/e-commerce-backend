@@ -1,3 +1,8 @@
+const Catalog = require("../models/Catalog");
+const Product = require("../models/Product");
+const User = require("../models/User");
+const Order = require("../models/Order");
+
 const createCatalog = async (req, res) => {
   try {
     const { sellerId, products } = req.body;
