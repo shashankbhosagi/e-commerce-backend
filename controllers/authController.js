@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const getToken = require("../utils/helper");
 
 const register = async (req, res) => {
   try {
