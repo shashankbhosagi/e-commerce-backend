@@ -18,13 +18,13 @@ Follow these steps to get the project set up on your local machine:
 1. Clone the repository:
 
    ```bash
-   git clone
+   git clone https://github.com/shashankbhosagi/unity-backend.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd
+   cd unity-backend
    ```
 
 3. Install the dependencies using npm:
@@ -40,3 +40,5 @@ Now that you have the project and its dependencies installed, you can run it wit
 ```bash
 npm start
 ```
+
+##Note : You will need the .env file to run this project. Which will be present in root directory of the project folder.
