@@ -1,5 +1,18 @@
 const listOfSellers = async (req, res) => {
-  res.status(200).json({ message: "listOfSellers works" });
+  try {
+    const sellers = await User.find({ userType: "seller" });
+    const sellerList = sellers.map((seller) => {
+      return {
+        userId: seller._id,
+        userName: seller.userName,
+      };
+    });
+
+    res.status(201).json({ sellers: sellerList });
+  } catch (error) {
+    console.log("Error fetching list of sellers:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
 
 const singleSellerCatalog = async (req, res) => {
