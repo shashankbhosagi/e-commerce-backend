@@ -1,6 +1,13 @@
 const User = require("../models/User");
 const getToken = require("../utils/helper");
 
+/*
+ * @breif - Registers new user
+ * @type - POST
+ * @params - takes userName, password, userType as input
+ * @returns - success message on successful completition of registrations
+ * @api - /api/auth/register
+ */
 const register = async (req, res) => {
   try {
     const { userName, password, userType } = req.body;
@@ -21,6 +28,14 @@ const register = async (req, res) => {
   }
 };
 
+/*
+* @breif - Login for exisiting user in system 
+* @type - POST
+* @params - takes userName, password as input in body
+* @returns - success message on successful completition of login with jwttoken.
+* @api - /api/auth/login
+
+*/
 const login = async (req, res) => {
   try {
     const { userName, password } = req.body;

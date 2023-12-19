@@ -2,6 +2,13 @@ const User = require("../models/User");
 const Catalog = require("../models/Catalog");
 const Order = require("../models/Order");
 
+/*
+ * @breif - gives list of seller in dataBase
+ * @type - GET
+ * @params
+ * @returns - list of seller with thier _id && userName
+ * @api - /api/buyer/list-of-sellers
+ */
 const listOfSellers = async (req, res) => {
   try {
     const sellers = await User.find({ userType: "seller" });
@@ -19,6 +26,13 @@ const listOfSellers = async (req, res) => {
   }
 };
 
+/*
+ * @breif - gives list of products that are available in sellers catalog
+ * @type - GET
+ * @params - takes seller_id as a param in api call
+ * @returns - list of all the products in the seller's catalog
+ * @api - /api/buyer/seller-catalog/:seller_id
+ */
 const singleSellerCatalog = async (req, res) => {
   try {
     const sellerId = req.params.seller_id;
@@ -42,6 +56,13 @@ const singleSellerCatalog = async (req, res) => {
   }
 };
 
+/*
+ * @breif - A usertype of buyer can create an order containing list of products that they want to buy from a particular seller's catalog only.
+ * @type - POST
+ * @params - takes seller_id in params of api and takes buyer, seller _id and products _id array in the body of api
+ * @returns - confirmation on successfull creation of order
+ * @api - /api/buyer/create-order/:seller_id
+ */
 const createOrder = async (req, res) => {
   try {
     const { buyer, seller, products } = req.body;

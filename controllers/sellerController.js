@@ -3,6 +3,13 @@ const Product = require("../models/Product");
 const User = require("../models/User");
 const Order = require("../models/Order");
 
+/*
+ * @breif - Creates catalog for a seller, and each seller can have only one catalog
+ * @type - POST
+ * @params - sellerId and products array from the body of api call
+ * @returns - confirmation on successful creation of catalog
+ * @api - /api/seller/create-catalog
+ */
 const createCatalog = async (req, res) => {
   try {
     const { sellerId, products } = req.body;
@@ -46,6 +53,13 @@ const createCatalog = async (req, res) => {
   }
 };
 
+/*
+ * @breif - gives all the current orders that are places with the seller with the products in it which have been ordered
+ * @type - GET
+ * @params - takes in the seller id from the auth token that have been sent during login, for now for testing reciving it in authorizationHeader
+ * @returns - list of current orders associated with that seller
+ * @api - /api/seller/orders
+ */
 const currentOrders = async (req, res) => {
   try {
     const authorizationHeader = req.headers["authorization"];
